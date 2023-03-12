@@ -11,7 +11,7 @@ def password_gen(names):
 
     name_arr = name_space.split()
 
-    special_chars = ['!', '@', '#', '$', '%', '^', '&', '*', '_', '-', '+', '=', '`', '|', "(", ")", '{', '}', ':', ';', '<', '>', ',', '.', '?', '/', '1', '2', '3', '4', '5', '6']
+    special_chars = ['!', '@', '#', '$', '%', '&', '*', '_', '-', '+', '=', '|', "(", ")", '{', '}', ':', '?', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
     password_generated = []
 
@@ -22,7 +22,11 @@ def password_gen(names):
 
     #Convert the password_generated list to a string
     password = ''.join(password_generated)
-    return password
+    
+    #Limits the password only to be 8 characters long
+    cut_password = (password[:8] + '') if len(password) > 8 else password
+    
+    return cut_password
 
 count_int = int(how_many)
 count = 0
